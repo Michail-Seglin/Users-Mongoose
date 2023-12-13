@@ -1,8 +1,8 @@
 const express = require('express');
 const { createUser, getAllUsers, getUserId, updateUser, deleteUser } = require("../service/user.service");
-const route = express.Router();
+const routeUser = express.Router();
 
-route.post('/', async (req, res) => {
+routeUser.post('/', async (req, res) => {
     try {
         const data = await createUser(req.body);
         res.send(data);
@@ -11,7 +11,7 @@ route.post('/', async (req, res) => {
     }
 })
 
-route.get('/', async (req, res) => {
+routeUser.get('/', async (req, res) => {
     try {
         const data = await getAllUsers();
         res.send(data);
@@ -20,7 +20,7 @@ route.get('/', async (req, res) => {
     }
 })
 
-route.get('/:_id', async (req, res) => {
+routeUser.get('/:_id', async (req, res) => {
     try {
         const data = await getUserId(req.params._id);
         res.send(data);
@@ -29,7 +29,7 @@ route.get('/:_id', async (req, res) => {
     }
 })
 
-route.put('/:_id', async (req, res) => {
+routeUser.put('/:_id', async (req, res) => {
     try {
 
         const data = await updateUser(req.params._id, req.body);
@@ -41,7 +41,7 @@ route.put('/:_id', async (req, res) => {
     }
 })
 
-route.delete('/:_id', async (req, res) => {
+routeUser.delete('/:_id', async (req, res) => {
     try {
         const data = await deleteUser(req.params._id);
         res.send(data);
@@ -50,4 +50,4 @@ route.delete('/:_id', async (req, res) => {
     }
 })
 
-module.exports = route;
+module.exports = routeUser;

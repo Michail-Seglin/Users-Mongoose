@@ -10,6 +10,14 @@ const TableUser = mongoose.model('users', {
     age: Number
 })
 
+const TableSkill = mongoose.model('skills',{
+    name: String,
+    surname: String,
+    email: String,
+    password: String,
+    age: Number
+})
+
 const ObjectId = mongoose.Types.ObjectId
 
 module.exports = { TableUser, ObjectId }
