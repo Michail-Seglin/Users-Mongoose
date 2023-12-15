@@ -6,4 +6,9 @@ async function createSkillDB(skill) {
     return data;
 }
 
-module.exports = { createSkillDB };
+async function getAllSkillsDB() {
+    const data = await TableSkill.find();
+    return data;
+}
+
+module.exports = { createSkillDB, getAllSkillsDB };
