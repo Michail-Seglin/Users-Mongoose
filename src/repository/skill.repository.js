@@ -11,4 +11,11 @@ async function getAllSkillsDB() {
     return data;
 }
 
-module.exports = { createSkillDB, getAllSkillsDB };
+async function deleteSkillDB(_id) {
+    await TableSkill.deleteOne({ _id: new ObjectId });
+
+    const data = await TableSkill.find();
+    return data;
+}
+
+module.exports = { createSkillDB, getAllSkillsDB, deleteSkillDB };

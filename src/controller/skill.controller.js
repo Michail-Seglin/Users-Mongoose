@@ -1,6 +1,6 @@
 const express = require('express');
 const routeSkill = express.Router();
-const { createSkill, getAllSkills } = require('../service/skill.service');
+const { createSkill, getAllSkills, deleteSkill } = require('../service/skill.service');
 
 routeSkill.post('/', async (req, res) => {
     try {
@@ -14,6 +14,15 @@ routeSkill.post('/', async (req, res) => {
 routeSkill.get('/', async (req, res) => {
     try {
         const data = await getAllSkills();
+        res.send(data);
+    } catch (error) {
+        res.send(error.message);
+    }
+})
+
+routeSkill.delete('/:_id', async (req, res) => {
+    try {
+        const data = await deleteSkill(req.params._id);
         res.send(data);
     } catch (error) {
         res.send(error.message);
