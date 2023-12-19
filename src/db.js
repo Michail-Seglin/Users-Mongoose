@@ -11,13 +11,10 @@ const TableUser = mongoose.model('users', {
 })
 
 const TableSkill = mongoose.model('skills',{
-    name: String,
-    surname: String,
-    email: String,
-    password: String,
-    age: Number
+    title: String
+  
 })
 
 const ObjectId = mongoose.Types.ObjectId
 
-module.exports = { TableUser, ObjectId }
+module.exports = { TableUser, TableSkill, ObjectId }

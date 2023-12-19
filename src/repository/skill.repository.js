@@ -17,7 +17,7 @@ async function getSkillIdDB(_id) {
 }
 
 async function updateSkillDB(_id, skill) {
-    await TableSkill.updateOne({ _id: new ObjectId(_id) }, { $set: user });
+    await TableSkill.updateOne({ _id: new ObjectId(_id) }, { $set: skill });
     const data = await TableSkill.find();
     return data;
 }
